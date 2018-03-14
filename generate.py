@@ -110,18 +110,20 @@ try:
         args = sys.argv[1:]
         if not args:
             print """
-        This script will generate a few folders and scripts based on predefined github repos
+        This script will generate a few folders and scripts based on predefined
+        github repos.
+
         Select which Tasks you would like to preform
 
-        1) Generate only Wordlsits+FuzzDB
-        2) Generate only web directory scanners(inspathx, Dir-Xcan, dirsearch, pyfuzz)
-        3) Generate only exploit tools(CRLF, AutoSploit, JexBoss, JavaUnserialize, dorkbot)
-        4) Generate all tools(Options 2-3 and includes IPscanner and SiteServices.sh)
-        5) Generate the precomplied git repos(Rhino-Labs, Arsenal-Tools)
-        6) Generate options 1-4
-        7) Generate options 1 and 5
-        8) Generate options 4 and 5
-        9) Generate all
+    1) Generate only Wordlsits+FuzzDB              10) Add New repo to list
+    2) Generate only web directory scanners        99) Exit app
+    3) Generate only exploit tools
+    4) Generate all tools
+    5) Generate the precomplied git repos
+    6) Generate options 1-4
+    7) Generate options 1 and 5
+    8) Generate options 4 and 5
+    9) Generate all
         """
             request_generate = raw_input("\n Make your selection: ")
             menu_command(request_generate)
@@ -140,3 +142,4 @@ except KeyboardInterrupt:
 #Call the main function
 if __name__=='__main__':
     main()
+    sys.exit()
