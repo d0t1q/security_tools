@@ -24,7 +24,6 @@ urls_git=[
         ]
 
 def menu_command(request_generate):
-    print request_generate
     request_generate=int(request_generate)
     if request_generate==1:
         wordlists()
