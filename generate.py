@@ -52,6 +52,20 @@ def menu_command(request_generate):
         dir_scan()
         exploit_tools()
         precomplied()
+    if request_generate==10:
+        add_repos()
+
+def add_repos():
+    print """
+    Lets add a repo, what section do you want to add it to?
+    wordlists(W) - directory scanners(D) - exploit tools(E) - precompiled repos(P)
+
+    """
+    selection = raw_input("Your selection: ")
+    if selection.lower() =="w" or selection.lower() =="d" or selection.lower() =="e" or selection.lower() =="p":
+        pass
+    else:
+        add_repos()
 
 
 def wordlists():
