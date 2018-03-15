@@ -63,7 +63,9 @@ def add_repos():
     """
     selection = raw_input("Your selection: ")
     if selection.lower() =="w" or selection.lower() =="d" or selection.lower() =="e" or selection.lower() =="p":
-        pass
+        repo_url = raw_input("The url of the repo: ")
+        repo_short = raw_input("enter a short form name of the repo(what the folder will be called): ")
+        #urls_git.append(
     else:
         add_repos()
 
