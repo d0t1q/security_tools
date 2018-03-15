@@ -58,14 +58,21 @@ def menu_command(request_generate):
 def add_repos():
     print """
     Lets add a repo, what section do you want to add it to?
-    wordlists(W) - directory scanners(D) - exploit tools(E) - precompiled repos(P)
+    wordlists(w) - directory scanners(d) - exploit tools(e) - precompiled repos(p)
 
     """
     selection = raw_input("Your selection: ")
     if selection.lower() =="w" or selection.lower() =="d" or selection.lower() =="e" or selection.lower() =="p":
         repo_url = raw_input("The url of the repo: ")
         repo_short = raw_input("enter a short form name of the repo(what the folder will be called): ")
-        #urls_git.append(
+        if selection.lower() =="w":
+            urls_git.append(["wordlist",repo_short,repo_url])
+        if selection.lower() =="d":
+            urls_git.append(["dirscan",repo_short,repo_url])
+        if selection.lower() =="e":
+            urls_git.append(["tools",repo_short,repo_url])
+        if selection.lower() =="p":
+            urls_git.append(["precomplied",repo_short,repo_url])
     else:
         add_repos()
 
@@ -131,15 +138,15 @@ try:
 
         Select which Tasks you would like to preform
 
-    1) Generate only Wordlsits+FuzzDB              10) Add New repo to list
-    2) Generate only web directory scanners        99) Exit app
-    3) Generate only exploit tools
-    4) Generate all tools
-    5) Generate the precomplied git repos
-    6) Generate options 1-4
-    7) Generate options 1 and 5
-    8) Generate options 4 and 5
-    9) Generate all
+    1)  Generate only Wordlsits+FuzzDB              10) Add New repo to list
+    2)  Generate only web directory scanners        11) update all repos
+    3)  Generate only exploit tools                 12) install all dependancies
+    4)  Generate all tools                          98) print out all repos
+    5)  Generate the precomplied git repos          99) exit
+    6)  Generate options 1-4
+    7)  Generate options 1 and 5
+    8)  Generate options 4 and 5
+    9)  Generate all
         """
             request_generate = raw_input("\n Make your selection: ")
             menu_command(request_generate)
