@@ -1,27 +1,10 @@
 #!/usr/bin/python
-import sys
-import pip
+import sys, pip, git, os, csv
 from git import Repo
-import os
 from os import path
 
-urls_git=[
-        ["wordlist","seclist","https://github.com/danielmiessler/SecLists"],
-        ["wordlist","fuzzdb","https://github.com/hannestrunde/fuzzdb.git"],
-        ["dirscan","inspathx","https://github.com/emilyanncr/inspathx.git"],
-        ["dirscan","dirsearch","https://github.com/maurosoria/dirsearch.git"],
-        ["dirscan","dir-Xcan","https://github.com/NoobieDog/Dir-Xcan.git"],
-        ["dirscan","pyfuzz","https://github.com/AyoobAli/pyfuzz.git"],
-        ["tools","crlf","https://github.com/d0t1q/CRLF-Injection-Scanner.git"],
-        ["tools","autoSploit","https://github.com/NullArray/AutoSploit.git"],
-        ["tools","ipScan","https://github.com/d0t1q/ipScan.git"],
-        ["tools","jexboss","https://github.com/joaomatosf/jexboss.git"],
-        ["tools","javaUnserialize","https://github.com/d0t1q/JavaUnserializeExploits.git"],
-        ["tools","dorkbot","https://github.com/utiso/dorkbot.git"],
-        ["precomplied","rhinoLabs","https://github.com/RhinoSecurityLabs/Security-Research.git"],
-        ["precomplied","arsenalTools","https://github.com/toolswatch/blackhat-arsenal-tools.git"],
-        ["precomplied","tactical-explotation","https://github.com/0xdea/tactical-exploitation.git"],
-        ]
+urls_file="urls_git.csv"
+urls_git = list(csv.reader(open(urls_file)))
 
 def menu_command(request_generate):
     request_generate=int(request_generate)
@@ -56,6 +39,7 @@ def menu_command(request_generate):
         add_repos()
     if request_generate==98:
         repo_list()
+
 def repo_list():
     print urls_git
 
