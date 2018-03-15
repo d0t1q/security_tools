@@ -44,6 +44,7 @@ def repo_list():
     print urls_git
 
 def add_repos():
+    f=open("urls_git.csv","a")
     print """
     Lets add a repo, what section do you want to add it to?
     wordlists(w) - directory scanners(d) - exploit tools(e) - precompiled repos(p)
@@ -54,16 +55,16 @@ def add_repos():
         repo_url = raw_input("The url of the repo: ")
         repo_short = raw_input("enter a short form name of the repo(what the folder will be called): ")
         if selection.lower() =="w":
-            urls_git.append(["wordlist",repo_short,repo_url])
+            f.write("wordlist,"+repo_short+","+repo_url)
         if selection.lower() =="d":
-            urls_git.append(["dirscan",repo_short,repo_url])
+            f.write("dirscan,",+repo_short+","+repo_url)
         if selection.lower() =="e":
-            urls_git.append(["tools",repo_short,repo_url])
+            f.write("tools,",+repo_short+","+repo_url)
         if selection.lower() =="p":
-            urls_git.append(["precomplied",repo_short,repo_url])
+            f.write("precomplied,",+repo_short+","+repo_url)
     else:
         add_repos()
-
+    f.close()
 
 def wordlists():
     print "word list generation"
@@ -73,6 +74,7 @@ def wordlists():
     else:
         os.mkdir(word_list[0][0])
     for i in xrange(0, len(word_list)):
+        print "Generating "+word_list[i][1]
         Repo.clone_from(word_list[i][2],word_list[0][0]+"/"+word_list[i][1])
 
 def dir_scan():
@@ -87,6 +89,7 @@ def dir_scan():
     else:
         os.mkdir("tools/"+dir_scan[0][0])
     for i in xrange(0, len(dir_scan)):
+        print "Generating "+dir_scan[i][1]
         Repo.clone_from(dir_scan[i][2],"tools/"+dir_scan[0][0]+"/"+dir_scan[i][1])
 
 
@@ -98,6 +101,7 @@ def exploit_tools():
     else:
         os.mkdir(exp_tools[0][0])
     for i in xrange(0, len(exp_tools)):
+        print "Generating "+exp_tools[i][1]
         Repo.clone_from(exp_tools[i][2],exp_tools[0][0]+"/"+exp_tools[i][1])
 
 def precomplied():
@@ -108,6 +112,7 @@ def precomplied():
     else:
         os.mkdir(pre_comp[0][0])
     for i in xrange(0, len(pre_comp)):
+        print "Generating "+pre_comp[i][1]
         Repo.clone_from(pre_comp[i][2],pre_comp[0][0]+"/"+pre_comp[i][1])
 
 def help():
