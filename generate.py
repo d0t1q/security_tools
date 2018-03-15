@@ -54,6 +54,10 @@ def menu_command(request_generate):
         precomplied()
     if request_generate==10:
         add_repos()
+    if request_generate==98:
+        repo_list()
+def repo_list():
+    print urls_git
 
 def add_repos():
     print """
