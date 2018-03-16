@@ -7,7 +7,7 @@ urls_file="urls_git.csv"
 urls_git = list(csv.reader(open(urls_file)))
 
 def menu_command(request_generate):
-    request_generate=int(request_generate)
+    #request_generate=int(request_generate)
     if request_generate==1:
         wordlists()
     if request_generate==2:
@@ -43,6 +43,7 @@ def menu_command(request_generate):
         inst_req()
     if request_generate==98:
         repo_list()
+    main()
 
 def pip_inst(package):
     pip.main(['install', package])
@@ -168,8 +169,11 @@ try:
     9)  Generate all
         """
             request_generate = raw_input("\n Make your selection: ")
-            menu_command(request_generate)
-
+            request_generate=int(request_generate)
+            if request_generate<=98:
+                menu_command(request_generate)
+            else:
+                exit()
         #if sys.argv[1].lower() == "-h" or sys.argv[1].lower() == "--help":
         #    help()
         else:
