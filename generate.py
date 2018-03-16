@@ -159,7 +159,7 @@ try:
     1)  Generate only Wordlsits+FuzzDB              7)  Add New repo to list
     2)  Generate only web directory scanners        8)  update all repos
     3)  Generate only exploit tools                 9)  install all dependancies
-    4)  Generate all tools                          98) print out all repos
+    4)  Generate WordList+tools                     98) print out all repos
     5)  Generate the precomplied git repos          99) exit
     6)  Generate all
         """
