@@ -78,9 +78,11 @@ def add_repos():
 
     """
     selection = raw_input("Your selection: ")
-    if selection.lower() =="w" or selection.lower() =="d" or selection.lower() =="e" or selection.lower() =="p":
+    if selection.lower() =="w" or selection.lower() =="d" or selection.lower()\
+    =="e" or selection.lower() =="p":
         repo_url = raw_input("The url of the repo: ")
-        repo_short = raw_input("enter a short form name of the repo(what the folder will be called): ")
+        repo_short = raw_input\
+        ("enter a short form name of the repo(what the folder will be called): ")
         if selection.lower() =="w":
             f.write("wordlist,"+repo_short+","+repo_url)
         if selection.lower() =="d":
