@@ -15,6 +15,7 @@ def menu_command(request_generate):
     if request_generate==3:
         exploit_tools()
     if request_generate==4:
+        wordlists()
         dir_scan()
         exploit_tools()
     if request_generate==5:
@@ -23,23 +24,12 @@ def menu_command(request_generate):
         wordlists()
         dir_scan()
         exploit_tools()
+        precomplied()
     if request_generate==7:
-        wordlists()
-        precomplied()
-    if request_generate==8:
-        dir_scan()
-        exploit_tools()
-        precomplied()
-    if request_generate==9:
-        wordlists()
-        dir_scan()
-        exploit_tools()
-        precomplied()
-    if request_generate==10:
         add_repos()
-    if request_generate==11:
+    if request_generate==8:
         update_gits()
-    if request_generate==12:
+    if request_generate==9:
         inst_req()
     if request_generate==98:
         repo_list()
@@ -163,15 +153,12 @@ try:
 
         Select which Tasks you would like to preform
 
-    1)  Generate only Wordlsits+FuzzDB              10) Add New repo to list
-    2)  Generate only web directory scanners        11) update all repos
-    3)  Generate only exploit tools                 12) install all dependancies
+    1)  Generate only Wordlsits+FuzzDB              7)  Add New repo to list
+    2)  Generate only web directory scanners        8)  update all repos
+    3)  Generate only exploit tools                 9)  install all dependancies
     4)  Generate all tools                          98) print out all repos
     5)  Generate the precomplied git repos          99) exit
-    6)  Generate options 1-4
-    7)  Generate options 1 and 5
-    8)  Generate options 4 and 5
-    9)  Generate all
+    6)  Generate all
         """
             request_generate = raw_input("\n Make your selection: ")
             request_generate=int(request_generate)
