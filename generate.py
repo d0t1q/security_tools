@@ -37,18 +37,34 @@ def menu_command(request_generate):
         precomplied()
     if request_generate==10:
         add_repos()
+    if request_generate==11:
+        update_gits()
     if request_generate==12:
         inst_req()
     if request_generate==98:
         repo_list()
+
+def pip_inst(package):
+    pip.main(['install', package])
+
+def update_gits():
+    pass
+#run that script booooy
 
 def inst_req():
     matches = []
     for root, dirnames, filenames in os.walk('./'):
         for filename in fnmatch.filter(filenames, 'requirements*'):
             matches.append(os.path.join(root, filename))
+    req_lib=[]
+    for i in xrange(0, len(matches)):
+        with open(matches[i]) as f:
+            req_lib.extend( f.read().splitlines())
+            f.close()
     print matches
-
+    print req_lib
+    for i in xrange(0, len(req_lib)):
+        pip_inst(req_lib[i])
 
 def repo_list():
     print urls_git
@@ -77,7 +93,7 @@ def add_repos():
     f.close()
 
 def wordlists():
-    print "word list generation"
+    print "[-WORD LIST GENERATION-]"
     word_list = [i for i in urls_git if i[0] == "wordlist"]
     if path.isdir(word_list[0][0]):
         pass
@@ -88,7 +104,7 @@ def wordlists():
         Repo.clone_from(word_list[i][2],word_list[0][0]+"/"+word_list[i][1])
 
 def dir_scan():
-    print "Generating DirScanning tools"
+    print "[-DIR SCANNING TOOLS GENERATION-]"
     dir_scan = [i for i in urls_git if i[0] == "dirscan"]
     if path.isdir("tools"):
         pass
@@ -104,7 +120,7 @@ def dir_scan():
 
 
 def exploit_tools():
-    print "Generating exploit tools"
+    print "[-EXPLOIT TOOLS GENERATION-]"
     exp_tools = [i for i in urls_git if i[0] == "tools"]
     if path.isdir(exp_tools[0][0]):
         pass
@@ -115,7 +131,7 @@ def exploit_tools():
         Repo.clone_from(exp_tools[i][2],exp_tools[0][0]+"/"+exp_tools[i][1])
 
 def precomplied():
-    print "Generating precomplied repos"
+    print "[-PRECOMPILED REPO GENERATION-]"
     pre_comp = [i for i in urls_git if i[0] == "precomplied"]
     if path.isdir(pre_comp[0][0]):
         pass
