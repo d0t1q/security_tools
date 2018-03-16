@@ -52,14 +52,17 @@ def inst_req():
         with open(matches[i]) as f:
             req_lib.extend( f.read().splitlines())
             f.close()
-    print "\n[-INSTALLING THE FOLLOWING LIBRARIES-]"
+    print "\n[- INSTALLING THE FOLLOWING LIBRARIES -]"
     for i in xrange(0, len(req_lib)):
         print req_lib[i]
     for i in xrange(0, len(req_lib)):
         pip_inst(req_lib[i])
 
 def repo_list():
-    print urls_git
+    print "\n[- CURRENT REPO LIST -]"
+    print "\n SECTION +|+ SHORT NAME +|+ URL\n"
+    for i in xrange(0, len(urls_git)):
+        print urls_git[i][0]+" +|+ "+urls_git[i][1]+" +|+ "+urls_git[i][2]
 
 def add_repos():
     f=open("urls_git.csv","a")
@@ -77,17 +80,17 @@ def add_repos():
         if selection.lower() =="w":
             f.write("wordlist,"+repo_short+","+repo_url)
         if selection.lower() =="d":
-            f.write("dirscan,",+repo_short+","+repo_url)
+            f.write("dirscan,"+repo_short+","+repo_url)
         if selection.lower() =="e":
-            f.write("tools,",+repo_short+","+repo_url)
+            f.write("tools,"+repo_short+","+repo_url)
         if selection.lower() =="p":
-            f.write("precomplied,",+repo_short+","+repo_url)
+            f.write("precomplied,"+repo_short+","+repo_url)
     else:
         add_repos()
     f.close()
 
 def wordlists():
-    print "\n[-WORD LIST GENERATION-]"
+    print "\n[- WORD LIST GENERATION -]"
     word_list = [i for i in urls_git if i[0] == "wordlist"]
     if path.isdir(word_list[0][0]):
         pass
@@ -98,7 +101,7 @@ def wordlists():
         Repo.clone_from(word_list[i][2],word_list[0][0]+"/"+word_list[i][1])
 
 def dir_scan():
-    print "\n[-DIR SCANNING TOOLS GENERATION-]"
+    print "\n[- DIR SCANNING TOOLS GENERATION -]"
     dir_scan = [i for i in urls_git if i[0] == "dirscan"]
     if path.isdir("tools"):
         pass
@@ -114,7 +117,7 @@ def dir_scan():
 
 
 def exploit_tools():
-    print "\n[-EXPLOIT TOOLS GENERATION-]"
+    print "\n[- EXPLOIT TOOLS GENERATION -]"
     exp_tools = [i for i in urls_git if i[0] == "tools"]
     if path.isdir(exp_tools[0][0]):
         pass
@@ -125,7 +128,7 @@ def exploit_tools():
         Repo.clone_from(exp_tools[i][2],exp_tools[0][0]+"/"+exp_tools[i][1])
 
 def precomplied():
-    print "\n[-PRECOMPILED REPO GENERATION-]"
+    print "\n[- PRECOMPILED REPO GENERATION -]"
     pre_comp = [i for i in urls_git if i[0] == "precomplied"]
     if path.isdir(pre_comp[0][0]):
         pass
@@ -169,7 +172,7 @@ try:
         #if sys.argv[1].lower() == "-h" or sys.argv[1].lower() == "--help":
         #    help()
         else:
-            print "Invlaid formatting"
+            help()
             sys.exit()
 
 #check for ^C
