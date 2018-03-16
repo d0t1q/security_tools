@@ -1,5 +1,5 @@
 #!/usr/bin/python
-import sys, pip, git, os, csv
+import sys, pip, git, os, csv, fnmatch
 from git import Repo
 from os import path
 
@@ -37,8 +37,18 @@ def menu_command(request_generate):
         precomplied()
     if request_generate==10:
         add_repos()
+    if request_generate==12:
+        inst_req()
     if request_generate==98:
         repo_list()
+
+def inst_req():
+    matches = []
+    for root, dirnames, filenames in os.walk('./'):
+        for filename in fnmatch.filter(filenames, 'requirements*'):
+            matches.append(os.path.join(root, filename))
+    print matches
+
 
 def repo_list():
     print urls_git
