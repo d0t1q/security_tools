@@ -62,7 +62,7 @@ def repo_list():
     print "\n[- CURRENT REPO LIST -]"
     print "\n SECTION +|+ SHORT NAME +|+ URL\n"
     for i in xrange(0, len(urls_git)):
-        print urls_git[i][0]+" +|+ "+urls_git[i][1]+" +|+ "+urls_git[i][2]
+        print urls_git[i][0]+"\n\t +|+ "+urls_git[i][1]+"\n\t\t\t +|+ "+urls_git[i][2]
 
 def add_repos():
     f=open("urls_git.csv","a")
@@ -98,7 +98,10 @@ def wordlists():
         os.mkdir(word_list[0][0])
     for i in xrange(0, len(word_list)):
         print "Generating "+word_list[i][1]
-        Repo.clone_from(word_list[i][2],word_list[0][0]+"/"+word_list[i][1])
+        try:
+            Repo.clone_from(word_list[i][2],word_list[0][0]+"/"+word_list[i][1])
+        except:
+            print "already exists, passing"
 
 def dir_scan():
     print "\n[- DIR SCANNING TOOLS GENERATION -]"
@@ -113,8 +116,10 @@ def dir_scan():
         os.mkdir("tools/"+dir_scan[0][0])
     for i in xrange(0, len(dir_scan)):
         print "Generating "+dir_scan[i][1]
-        Repo.clone_from(dir_scan[i][2],"tools/"+dir_scan[0][0]+"/"+dir_scan[i][1])
-
+        try:
+            Repo.clone_from(dir_scan[i][2],"tools/"+dir_scan[0][0]+"/"+dir_scan[i][1])
+        except:
+            print "already exists, passing"
 
 def exploit_tools():
     print "\n[- EXPLOIT TOOLS GENERATION -]"
@@ -125,8 +130,10 @@ def exploit_tools():
         os.mkdir(exp_tools[0][0])
     for i in xrange(0, len(exp_tools)):
         print "Generating "+exp_tools[i][1]
-        Repo.clone_from(exp_tools[i][2],exp_tools[0][0]+"/"+exp_tools[i][1])
-
+        try:
+            Repo.clone_from(exp_tools[i][2],exp_tools[0][0]+"/"+exp_tools[i][1])
+        except:
+            print "already exists, passing"
 def precomplied():
     print "\n[- PRECOMPILED REPO GENERATION -]"
     pre_comp = [i for i in urls_git if i[0] == "precomplied"]
@@ -136,8 +143,10 @@ def precomplied():
         os.mkdir(pre_comp[0][0])
     for i in xrange(0, len(pre_comp)):
         print "Generating "+pre_comp[i][1]
-        Repo.clone_from(pre_comp[i][2],pre_comp[0][0]+"/"+pre_comp[i][1])
-
+        try:
+            Repo.clone_from(pre_comp[i][2],pre_comp[0][0]+"/"+pre_comp[i][1])
+        except:
+            print "already exists, passing"
 def help():
     print """
         Generates a security tools folder
