@@ -10,6 +10,7 @@ tools,ipScan,https://github.com/d0t1q/ipScan.git
 tools,jexboss,https://github.com/joaomatosf/jexboss.git
 tools,javaUnserialize,https://github.com/d0t1q/JavaUnserializeExploits.git
 tools,dorkbot,https://github.com/utiso/dorkbot.git
+tools,ssltest,https://github.com/drwetter/testssl.sh.git
 precomplied,rhinoLabs,https://github.com/RhinoSecurityLabs/Security-Research.git
 precomplied,arsenalTools,https://github.com/toolswatch/blackhat-arsenal-tools.git
 precomplied,tactical-explotation,https://github.com/0xdea/tactical-exploitation.git
