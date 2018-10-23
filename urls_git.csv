@@ -4,6 +4,7 @@ dirscan,inspathx,https://github.com/emilyanncr/inspathx.git
 dirscan,dirsearch,https://github.com/maurosoria/dirsearch.git
 dirscan,dir-Xcan,https://github.com/NoobieDog/Dir-Xcan.git
 dirscan,pyfuzz,https://github.com/AyoobAli/pyfuzz.git
+sub,sublist,https://github.com/aboul3la/Sublist3r.git
 tools,crlf,https://github.com/d0t1q/CRLF-Injection-Scanner.git
 tools,autoSploit,https://github.com/NullArray/AutoSploit.git
 tools,ipScan,https://github.com/d0t1q/ipScan.git
